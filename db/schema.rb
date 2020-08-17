@@ -10,9 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_08_17_144748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "markets", force: :cascade do |t|
+    t.string "img"
+    t.string "name"
+    t.string "street"
+    t.string "postal_code"
+    t.string "city"
+    t.string "opening_hours"
+    t.string "vendors"
+    t.string "products"
+    t.string "info"
+    t.boolean "open_on", array: true
+    t.boolean "bio"
+    t.boolean "night"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "merchants", force: :cascade do |t|
+    t.string "name"
+    t.string "img"
+    t.string "description"
+    t.bigint "market_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["market_id"], name: "index_merchants_on_market_id"
+  end
+
+  create_table "upvotes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "merchant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["merchant_id"], name: "index_upvotes_on_merchant_id"
+    t.index ["user_id"], name: "index_upvotes_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "merchants", "markets"
+  add_foreign_key "upvotes", "merchants"
+  add_foreign_key "upvotes", "users"
 end
