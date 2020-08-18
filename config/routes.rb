@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'merchants/index'
   root to: 'markets#index'
   resources :markets, only: [:index, :show] do
