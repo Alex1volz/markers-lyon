@@ -5,15 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "Cleaning database..."
-Market.destroy_all
+
+
 
 require "open-uri"
 require "nokogiri"
 
 
-def scrape_all_urls
-  html = open("https://www.lyon.fr/equipements?search_api_fulltext=&field_secteur_geographique=All&items_per_page=100&field_sous_types_tmp=1487&field_sous_types_tmp_bis=1641&field_sous_types=1609").read
+def scrape_all_urls(url)
+  html = open(url).read
   doc = Nokogiri::HTML(html, nil, "utf-8")
   url_results = []
   doc.search('.group-actu a').each do |element|
@@ -33,7 +33,7 @@ def detail_scraping(url)
   postal_code = doc.search('.field--name-field-code-postal div.field--item').text
   city = doc.search('.field--name-field-ville div.field--item').text
   opening_hours = doc.search('.field--name-field-horaires').text.gsub("\n",'').gsub!("  ",'').gsub!("Horaires",'')
-  vendors = doc.search('.field--name-field-informations p:nth-of-type(1)').text.gsub("\n",'')
+  vendors = doc.search('.field--name-field-informations p:nth-of-type(1)').text.gsub(/[^0-9]/, '')
   products = doc.search('.field--name-field-informations p:nth-of-type(2)').text.gsub("\n",'')
   info = doc.search('.field--name-field-informations p:nth-of-type(3)').text.gsub("\n",'')
   open_on = [false, false, false, false, false, false, false]
@@ -65,6 +65,49 @@ def iterate_thorug_url(arr_urls)
   end
 end
 
-url_results = scrape_all_urls
-url_results = url_results
+puts "Cleaning database..."
+Market.destroy_all
+url_results = scrape_all_urls("https://www.lyon.fr/equipements?search_api_fulltext=&field_secteur_geographique=All&items_per_page=100&field_sous_types_tmp=1487&field_sous_types_tmp_bis=1641&field_sous_types=1609")
 iterate_thorug_url(url_results)
+puts "created #{Market.count} markets"
+url_results_2 = scrape_all_urls("https://www.lyon.fr/equipements?search_api_fulltext=&field_secteur_geographique=All&field_sous_types_tmp=1487&field_sous_types_tmp_bis=1641&field_sous_types=1608")
+iterate_thorug_url(url_results_2)
+puts "created #{Market.count} markets"
+url_results_3 = scrape_all_urls("https://www.lyon.fr/equipements?search_api_fulltext=&field_secteur_geographique=All&field_sous_types_tmp=1487&field_sous_types_tmp_bis=1641&field_sous_types=1610")
+iterate_thorug_url(url_results_3)
+puts "created #{Market.count} markets"
+
+markets = Market.all
+
+markets.each do |market|
+
+  market.name.gsub!(" alimentaire",'')
+
+  if market.name.include? "biologique"
+    print market.name
+    print " --> "
+    market.bio = true
+    market.name.gsub!(" biologique",'')
+    print market.name
+  end
+
+  if market.name.include? " du soir"
+    print market.name
+    print " --> "
+    market.night = true
+    market.name.gsub!(" du soir",'')
+    print market.name
+  end
+
+  p market.open_on[0] = true if market.opening_hours.include? "lundi"
+  p market.open_on[1] = true if market.opening_hours.include? "mardi"
+  p market.open_on[2] = true if market.opening_hours.include? "mercredi"
+  p market.open_on[3] = true if market.opening_hours.include? "jeudi"
+  p market.open_on[4] = true if market.opening_hours.include? "vendredi"
+  p market.open_on[5] = true if market.opening_hours.include? "samedi"
+  p market.open_on[6] = true if market.opening_hours.include? "dimanche"
+
+  p ""
+
+  market.save
+end
