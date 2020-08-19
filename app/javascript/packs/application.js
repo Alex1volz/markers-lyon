@@ -13,3 +13,7 @@ require("channels")
 import "bootstrap"
 import "../components/hide_on_scroll.js"
 
+
+
+const Turbolinks = require("turbolinks")
+Turbolinks.start()
