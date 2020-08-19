@@ -1,6 +1,13 @@
 class MarketsController < ApplicationController
   def index
     @markets = Market.all
+
+    @markers = @markets.map do |market|
+      {
+        lat: market.latitude,
+        lng: market.longitude
+      }
+    end
   end
   #   if params[:day].present? && params[:day] == "monday"
   #     @markets = @markets.where(monday: ture)

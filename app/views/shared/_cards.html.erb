@@ -35,5 +35,9 @@
           </div>
         <% end %>
     </div>
-  <img id="map" src='https://raw.githubusercontent.com/lewagon/layouts-demo/gh-pages/images/mapbox.png'>
+    <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['pk.eyJ1IjoiYW50b24tdm9yIiwiYSI6ImNrZTFqbXp6djAwMXEyenA2MmZlams5MmIifQ.Ew0v3OxivBNhM3qlIMXNkQ'] %>">
+     </div>
 </div>

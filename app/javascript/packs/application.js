@@ -13,6 +13,11 @@ require("channels")
 import "bootstrap"
 import "../components/hide_on_scroll.js"
 
+import { initMapbox } from '../plugins/init_mapbox';
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
 
 
 const Turbolinks = require("turbolinks")
