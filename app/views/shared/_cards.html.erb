@@ -3,10 +3,8 @@
         <% @markets.each do |market| %>
           <div class="card-custom">
             <div class="additional" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= market.img %>')">
-              <%= market.bio %>
-              <%= market.night %>
               <div class="more-info">
-                <h1><%= market.name %></h1>
+                <h2><%= market.name %></h2>
                 <div class="coords">
                   <span><%= market.street %></span>
                   <span><%= market.postal_code %>
@@ -27,13 +25,17 @@
               </div>
             </div>
             <div class="general">
-              <h1><%= market.name %></h1>
+              <h2><%= market.name %></h2>
+              <div class="tags">
+                <span class="bio <%= "invisible" if market.bio == false%>"><%= "biologique" if market.bio == true%></span>
+                <span class="night<%= "invisible" if market.night == false%>"><%= "du soir" if market.night == true%></span>
+              </div>
               <div class="day">
-                <span class="monday">lun</span>
+                <span class="monday open">lun</span>
                 <span class="tuesday">mar</span>
                 <span class="wednedsday">mer</span>
                 <span class="thursday">jeu</span>
-                <span class="friday">ven</span>
+                <span class="friday open">ven</span>
                 <span class="saturday">sam</span>
                 <span class="sunday">dim</span>
               </div>
