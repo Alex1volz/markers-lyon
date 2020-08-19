@@ -23,7 +23,7 @@
 
 .day .open {
   // opacity: 1;
-  color: #5eba7d;
+  color: #a0a0a0;
 }
 
 .day span {
@@ -99,10 +99,18 @@
 }
 
 .card-custom h2 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   position: absolute;
   left: 170px;
   top: 60px;
+  font-weight: 900;
+}
+
+.card-custom .additional .more-info h2 {
+  color: #fff;
+  margin-bottom: 0;
+  font-weight: 900;
+
 }
 
 .card-custom .additional {
@@ -111,7 +119,7 @@
   height: 100%;
   overflow: hidden;
   z-index: 2;
-  transition: all .4s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 .card-custom:hover .additional {
@@ -140,22 +148,20 @@
 
 
 .card-custom .additional .more-info {
-  width: 300px;
-  float: left;
+  width: 100%;
   position: absolute;
-  left: 150px;
+  width: 100%;
   height: 100%;
 }
 
-.card-custom .additional .more-info h2 {
-  color: #fff;
-  margin-bottom: 0;
-}
 
-.card-custom .additional .coords {
-  margin: 0 1rem;
+
+.card-custom .additional .address {
   color: #fff;
   font-size: 1rem;
+  position: absolute;
+  left: 170px;
+  top: 90px;
 }
 
 
@@ -167,14 +173,11 @@
   font-size: 1.5rem;
   display: flex;
   position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
+  bottom: 25px;
+  left: 30px;
   top: auto;
   color: #fff;
 }
-
-
 
 .card-custom .additional .stats > div {
   flex: 1;

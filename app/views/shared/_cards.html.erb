@@ -5,21 +5,13 @@
             <div class="additional" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= market.img %>')">
               <div class="more-info">
                 <h2><%= market.name %></h2>
-                <div class="coords">
-                  <span><%= market.street %></span>
-                  <span><%= market.postal_code %>
-                    <%= market.city %></span>
-                </div>
+                  <span class="address"> <%= market.street %> <%= market.postal_code %>
+                    <%= market.city %> </span>
                 <div class="stats">
-                  <div>
-                    <div class="title">Merchants</div>
+                  <div class="merchatns">
                     <i class="fas fa-store"></i>
-                    <div class="value"><%= market.vendors %></div>
-                  </div>
-                  <div>
-                    <div class="title">Reviews</div>
-                    <i class="far fa-star"></i>
-                    <div class="value">9</div>
+                    <div class="value py-1"><%= market.vendors %></div>
+                    <div class="title">Merchants</div>
                   </div>
                 </div>
               </div>
