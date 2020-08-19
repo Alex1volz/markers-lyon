@@ -31,13 +31,13 @@
                 <span class="night<%= "invisible" if market.night == false%>"><%= "du soir" if market.night == true%></span>
               </div>
               <div class="day">
-                <span class="monday open">lun</span>
-                <span class="tuesday">mar</span>
-                <span class="wednedsday">mer</span>
-                <span class="thursday">jeu</span>
-                <span class="friday open">ven</span>
-                <span class="saturday">sam</span>
-                <span class="sunday">dim</span>
+                <span class="monday <%= "open" if market.open_on[0] %>">lun</span>
+                <span class="tuesday <%= "open" if market.open_on[1] %>">mar</span>
+                <span class="wednedsday <%= "open" if market.open_on[2] %>">mer</span>
+                <span class="thursday <%= "open" if market.open_on[3] %>">jeu</span>
+                <span class="friday <%= "open" if market.open_on[4] %>">ven</span>
+                <span class="saturday <%= "open" if market.open_on[5] %>">sam</span>
+                <span class="sunday <%= "open" if market.open_on[6] %>">dim</span>
               </div>
             </div>
           </div>
