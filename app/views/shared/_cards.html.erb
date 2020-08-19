@@ -1,43 +1,38 @@
-
-
-  <div class="content">
-    <div class="cards">
-      <div class="center">
-        <% @markets.each do |market| %>
-          <div class="card-custom">
-            <div class="additional" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= market.img %>')">
-              <%= market.bio %>
-              <%= market.night %>
-              <div class="more-info">
-                <h1><%= market.name %></h1>
-                <div class="coords">
-                  <span><%= market.street %></span>
-                  <span><%= market.postal_code %>
-                    <%= market.city %></span>
-                </div>
-                <div class="stats">
-                  <div>
-                    <div class="title">Merchants</div>
-                    <i class="fas fa-store"></i>
-                    <div class="value"><%= market.vendors %></div>
-                  </div>
-                  <div>
-                    <div class="title">Pals</div>
-                    <i class="far fa-star"></i>
-                    <div class="value">9</div>
-                  </div>
-                </div>
+<div class="content">
+  <div class="cards">
+    <% @markets.each do |market| %>
+      <div class="card-custom">
+        <div class="additional" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= market.img %>')">
+          <%= market.bio %>
+          <%= market.night %>
+          <div class="more-info">
+            <h1><%= market.name %></h1>
+            <div class="coords">
+              <span><%= market.street %></span>
+              <span><%= market.postal_code %>
+                <%= market.city %></span>
+            </div>
+            <div class="stats">
+              <div>
+                <div class="title">Merchants</div>
+                <i class="fas fa-store"></i>
+                <div class="value"><%= market.vendors %></div>
+              </div>
+              <div>
+                <div class="title">Pals</div>
+                <i class="far fa-star"></i>
+                <div class="value">9</div>
               </div>
             </div>
-            <div class="general">
-              <h1><%= market.name %></h1>
-
-              <span class="more"><%= market.opening_hours %>
-                <%= market.open_on %></span>
-            </div>
           </div>
-        <% end %>
+        </div>
+        <div class="general">
+          <h1><%= market.name %></h1>
+          <span class="more"><%= market.opening_hours %>
+            <%= market.open_on %></span>
+        </div>
       </div>
-    </div>
-    <img id="map" src='https://raw.githubusercontent.com/lewagon/layouts-demo/gh-pages/images/mapbox.png'>
+    <% end %>
   </div>
+  <img id="map" src='https://raw.githubusercontent.com/lewagon/layouts-demo/gh-pages/images/mapbox.png'>
+</div>
