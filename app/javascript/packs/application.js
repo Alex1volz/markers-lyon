@@ -12,3 +12,4 @@ require("channels")
 // External imports
 import "bootstrap"
 import "../components/hide_on_scroll.js"
+
