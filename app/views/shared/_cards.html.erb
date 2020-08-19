@@ -22,7 +22,7 @@
                     <div class="value"><%= market.vendors %></div>
                   </div>
                   <div>
-                    <div class="title">Pals</div>
+                    <div class="title">Reviews</div>
                     <i class="far fa-star"></i>
                     <div class="value">9</div>
                   </div>
@@ -32,8 +32,15 @@
             <div class="general">
               <h1><%= market.name %></h1>
 
-              <span class="more"><%= market.opening_hours %>
-                <%= market.open_on %></span>
+              <div class="day">
+                <span class="monday">lun</span>
+                <span class="tuesday">mar</span>
+                <span class="wednedsday">mer</span>
+                <span class="thursday">jeu</span>
+                <span class="friday">ven</span>
+                <span class="saturday">sam</span>
+                <span class="sunday">dim</span>
+              </div>
             </div>
           </div>
         <% end %>
