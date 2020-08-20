@@ -1,5 +1,5 @@
   <div class="content">
-    <div class="cards">
+    <div class="cards" style="flex-grow: 1;">
         <% @markets.each do |market| %>
           <div class="card-custom">
             <div class="additional" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= market.img %>')">
@@ -35,9 +35,10 @@
           </div>
         <% end %>
     </div>
-    <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['pk.eyJ1IjoiYW50b24tdm9yIiwiYSI6ImNrZTFqbXp6djAwMXEyenA2MmZlams5MmIifQ.Ew0v3OxivBNhM3qlIMXNkQ'] %>">
+    <div class="map-wrapper">
+      <div id="map"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+       </div>
      </div>
 </div>
