@@ -5,8 +5,7 @@
             <div class="additional" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= market.img %>')">
               <div class="more-info">
                 <h2><%= market.name %></h2>
-                  <span class="address"> <%= market.street %> <%= market.postal_code %>
-                    <%= market.city %> </span>
+                  <span class="address"><%= market.street %> <%= market.postal_code %> <%= market.city %></span>
                 <div class="stats">
                   <div class="merchatns">
                     <i class="fas fa-store"></i>
@@ -18,6 +17,7 @@
             </div>
             <div class="general">
               <h2><%= market.name %></h2>
+              <span class="distance">à <%=rand(0.0..8.0).round(1)%> km</span>
               <div class="tags">
                 <span class="bio <%= "invisible" if market.bio == false%>"><%= "biologique" if market.bio == true%></span>
                 <span class="night<%= "invisible" if market.night == false%>"><%= "du soir" if market.night == true%></span>
