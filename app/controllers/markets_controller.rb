@@ -7,7 +7,22 @@ class MarketsController < ApplicationController
         lat: market.latitude,
         lng: market.longitude
       }
+
     end
+
+      @search_lat = 0.0
+      @search_lon = 0.0
+
+    if params[:search][:query]
+      @search_address = params[:search][:query]
+    else
+      @search_address = "1 Place de la Comédie, 69001 Lyon"
+    end
+
+      @search_lat = Geocoder.search(@search_address).first.data["lat"]
+      @search_lon = Geocoder.search(@search_address).first.data["lon"]
+      @markets = Market.near([@search_lat, @search_lon])
+
   end
   #   if params[:day].present? && params[:day] == "monday"
   #     @markets = @markets.where(monday: ture)

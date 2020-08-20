@@ -78,7 +78,6 @@ iterate_thorug_url(url_results_3)
 puts "created #{Market.count} markets"
 
 markets = Market.all
-
 markets.each do |market|
 
   market.name.gsub!(" alimentaire",'')

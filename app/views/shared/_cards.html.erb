@@ -17,7 +17,7 @@
             </div>
             <div class="general">
               <h2><%= market.name %></h2>
-              <span class="distance">à <%=rand(0.0..8.0).round(1)%> km</span>
+              <span class="distance"><%= "à " if market.latitude %><%= market.distance_to([@search_lat,@search_lon]).round(2) if market.latitude %><%= " km" if market.latitude %></span>
               <div class="tags">
                 <span class="bio <%= "invisible" if market.bio == false%>"><%= "biologique" if market.bio == true%></span>
                 <span class="night<%= "invisible" if market.night == false%>"><%= "du soir" if market.night == true%></span>
