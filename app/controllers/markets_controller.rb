@@ -2,13 +2,13 @@ class MarketsController < ApplicationController
   def index
     @markets = Market.all
 
-    @markers = @markets.map do |market|
+    @markers = @markets.where.not(latitude: nil).map do |market|
       {
         lat: market.latitude,
         lng: market.longitude
       }
-
     end
+    # @markers.reject! {|marker| marker[:lat] == nil }
 
       @search_lat = 0.0
       @search_lon = 0.0
@@ -22,6 +22,7 @@ class MarketsController < ApplicationController
       @search_lat = Geocoder.search(@search_address).first.data["lat"]
       @search_lon = Geocoder.search(@search_address).first.data["lon"]
       @markets = Market.near([@search_lat, @search_lon])
+
 
   end
   #   if params[:day].present? && params[:day] == "monday"
