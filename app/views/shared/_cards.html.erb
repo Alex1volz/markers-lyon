@@ -1,5 +1,5 @@
   <div class="content">
-    <div class="cards">
+    <div class="cards" style="flex-grow: 1;">
         <% @markets.each do |market| %>
           <div class="card-custom">
             <div class="additional" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= market.img %>')">
@@ -35,5 +35,10 @@
           </div>
         <% end %>
     </div>
-  <img id="map" src='https://raw.githubusercontent.com/lewagon/layouts-demo/gh-pages/images/mapbox.png'>
+    <div class="map-wrapper">
+      <div id="map"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+       </div>
+     </div>
 </div>

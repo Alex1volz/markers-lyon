@@ -1,5 +1,6 @@
 .content {
   display: flex;
+  padding: 0;
 }
 
 .cards {
@@ -18,12 +19,11 @@
   bottom: 10px;
   right: 10px;
   color: #c8c8c8;
-  // opacity: 0.2;
 }
 
 .day .open {
-  // opacity: 1;
-  color: #a0a0a0;
+  color: #5eba7d;
+  font-weight: 600;
 }
 
 .day span {
@@ -40,6 +40,7 @@
   border: 1px solid;
   padding: 4px;
   border-radius: 6px;
+
   color: #5eba7d;
 }
 
@@ -50,45 +51,17 @@
   color: #2595fb;
 }
 
+.map-wrapper {
+ width: 800px;
+}
 
 #map {
   height: 100vh;
   position: sticky;
-  width: 650px;
+  width: 100%;
+  height: 700px;
   top: 0;
 }
-/*Media Queries*/
-
-/*Smallest device*/
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-  #map {
-    display: none;
-  }
-}
-
-/*Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-  #map {
-    display: none;
-  }
-}
-
-/*Medium devices (tablets, 768px and up)*/
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-  #map {
-    display: block;
-  }
-}
-
 .card-custom {
   height: 150px;
   background-color: #fff;
@@ -126,6 +99,9 @@
   width: 100%;
   border-radius: 0 5px 5px 0;
   transform: scale(1.01);
+   .stats{
+     display: block;
+   }
 
 }
 
@@ -177,6 +153,7 @@
   left: 30px;
   top: auto;
   color: #fff;
+  display: none;
 }
 
 .card-custom .additional .stats > div {
