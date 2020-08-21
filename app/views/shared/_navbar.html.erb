@@ -1,11 +1,11 @@
 <div class="navbar smart-scroll navbar-expand-sm navbar-light navbar-lewagon fixed-top">
-  <a class="navbar-brand" href="#">
+
+  <div class="navbar-brand float-left">
     <i class="fas fa-store"></i>
-    <span>Les Marché de Lyon</span>
-</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <span><%= link_to "Les Marché de Lyon", markets_path, style: "text-decoration: none" %>
+    </span>
+  </div>
+
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -13,7 +13,6 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Sign in</a>
       </li>
-
     </ul>
   </div>
 </div>
