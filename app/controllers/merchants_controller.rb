@@ -1,5 +1,5 @@
 class MerchantsController < ApplicationController
   def index
-    @merchants = Merchant.all
+    Merchant.destroy_all
   end
 end

@@ -13,6 +13,7 @@ require("channels")
 import "bootstrap"
 import "../components/hide_on_scroll.js"
 import "../components/filter_on_search.js"
+import "../components/upvote.js"
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete.js';

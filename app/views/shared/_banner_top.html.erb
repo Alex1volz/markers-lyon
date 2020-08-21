@@ -1,9 +1,20 @@
 
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+<div class="card-category" style="background-image: url(<%= @market.img%>)">
   <div class="container text-left">
-     <h1>Breakfast</h1>
-     <p>Address</p>
-     <p>Hours</p>
-     <p>Info</p>
+     <h1><%= @market.name %></h1>
+     <p><%= @market.street %></p>
+     <p><%= @market.postal_code%> <%=@market.city%></p>
+     <p><%= @market.products %></p>
+
+
+     <div id="merchan-day" class="day ">
+       <span class="monday <%= "open" if @market.open_on[0] %>">lun</span>
+       <span class="tuesday <%= "open" if @market.open_on[1] %>">mar</span>
+       <span class="wednedsday <%= "open" if @market.open_on[2] %>">mer</span>
+       <span class="thursday <%= "open" if @market.open_on[3] %>">jeu</span>
+       <span class="friday <%= "open" if @market.open_on[4] %>">ven</span>
+       <span class="saturday <%= "open" if @market.open_on[5] %>">sam</span>
+       <span class="sunday <%= "open" if @market.open_on[6] %>">dim</span>
+     </div>
   </div>
 </div>
