@@ -12,11 +12,14 @@ require("channels")
 // External imports
 import "bootstrap"
 import "../components/hide_on_scroll.js"
+import "../components/filter_on_search.js"
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete.js';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initAutocomplete();
 })
 
 
