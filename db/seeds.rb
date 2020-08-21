@@ -27,7 +27,7 @@ def detail_scraping(url)
   doc = Nokogiri::HTML(html, nil, "utf-8")
   # 2. For the first five results
   results = []
-  img = ["https://img.theculturetrip.com/450x300/smart/wp-content/uploads/2018/06/saint-antoine.jpg","https://media.lyon-france.com/1280x854/117713/3932426.jpg", "https://www.ouest-france.fr/sites/default/files/styles/image-640/public/2018/02/22/plus-beau-marche-de-france-trois-marches-representeront-l-ouest_2.jpg?itok=65WgHjG0", 'https://mairie2.lyon.fr/sites/mairie2/files/march%C3%A9-arrdts-p.jpg'].sample
+  img = ["https://img.theculturetrip.com/450x300/smart/wp-content/uploads/2018/06/saint-antoine.jpg","https://media.lyon-france.com/1280x854/117713/3932426.jpg",  "https://images.unsplash.com/photo-1516463746734-30c21edde5af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", "https://images.unsplash.com/photo-1561385945-c99789cd12d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" "https://www.ouest-france.fr/sites/default/files/styles/image-640/public/2018/02/22/plus-beau-marche-de-france-trois-marches-representeront-l-ouest_2.jpg?itok=65WgHjG0", "https://images.unsplash.com/photo-1589140854530-3955778150b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", "https://images.unsplash.com/photo-1536953705238-a34098616ed1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"].sample
   name = doc.search('h1 span').text
   street = doc.search('.field--name-field-adresse .field--item').text
   postal_code = doc.search('.field--name-field-code-postal div.field--item').text
@@ -86,7 +86,7 @@ markets.each do |market|
     print market.name
     print " --> "
     market.bio = true
-    market.name.gsub!(" biologique",'')
+    market.name.gsub!(" biologique","bio")
     print market.name
   end
 
@@ -94,7 +94,7 @@ markets.each do |market|
     print market.name
     print " --> "
     market.night = true
-    market.name.gsub!(" du soir",'')
+    market.name.gsub!(" du soir","soir")
     print market.name
   end
 

@@ -1,6 +1,6 @@
 // detect scroll top or down
 if ($('.smart-scroll').length > 0) { // check if element exists
-    var last_scroll_top = 0;
+    const last_scroll_top = 10;
     $(window).on('scroll', function() {
         scroll_top = $(this).scrollTop();
         if(scroll_top < last_scroll_top) {
