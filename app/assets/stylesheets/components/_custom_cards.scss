@@ -1,0 +1,217 @@
+.content {
+  display: flex;
+  padding: 0;
+}
+
+.cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+.hide {
+  display: none;
+}
+
+.day {
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #c8c8c8;
+}
+
+.day .open {
+  color: #5eba7d;
+  font-weight: 600;
+}
+
+.day span {
+  padding: 2px;
+}
+
+.tags {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.tags .bio {
+  border: 1px solid;
+  padding: 4px;
+  border-radius: 6px;
+
+  color: #5eba7d;
+}
+
+.tags .night {
+  border: 1px solid;
+  padding: 4px;
+  border-radius: 6px;
+  color: #2595fb;
+}
+
+.map-wrapper {
+ width: 700px;
+}
+
+#map {
+  height: 100vh;
+  position: sticky;
+  width: 100%;
+    height: 700px;
+  top: 0;
+}
+.card-custom {
+  height: 150px;
+  background-color: #fff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-custom h2 {
+  font-size: 1.5rem;
+  position: absolute;
+  left: 170px;
+  top: 60px;
+  font-weight: 900;
+}
+
+.card-custom .additional .more-info h2 {
+  color: #fff;
+  margin-bottom: 0;
+  font-weight: 900;
+
+}
+
+.card-custom .additional {
+  position: absolute;
+  width: 150px;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+  transition: all .5s ease-in-out;
+}
+
+.card-custom:hover .additional {
+  width: 100%;
+  border-radius: 0 5px 5px 0;
+  transform: scale(1.01);
+   .stats{
+     display: block;
+   }
+
+}
+
+.card-custom .additional .user-card {
+  width: 150px;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+.card-custom .additional .user-card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10%;
+  right: -2px;
+  height: 80%;
+  border-left: 2px solid rgba(0,0,0,0.025);
+}
+
+
+.card-custom .additional .more-info {
+  width: 100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.card-custom .additional .address {
+  color: #fff;
+  font-size: 1rem;
+  position: absolute;
+  left: 170px;
+  top: 90px;
+}
+
+.distance {
+  color: rgb(180,180,180);
+  position: absolute;
+  left: 170px;
+  top: 90px;
+
+
+}
+
+
+.card-custom .additional .coords span + span {
+  float: right;
+}
+
+.card-custom .additional .stats {
+  font-size: 1.5rem;
+  display: flex;
+  position: absolute;
+  bottom: 25px;
+  left: 30px;
+  top: auto;
+  color: #fff;
+  display: none;
+}
+
+.card-custom .additional .stats > div {
+  flex: 1;
+  text-align: center;
+}
+
+.card-custom .additional .stats i {
+  display: block;
+}
+
+.card-custom .additional .stats div.title {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.card-custom .additional .stats div.value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+
+.card-custom .additional .stats div.value.infinity {
+  font-size: 2.5rem;
+}
+
+.card-custom .general {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 1.3rem;
+  padding-top: 0;
+}
+
+
+
+.card-custom .general .more {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 0.8em;
+}
