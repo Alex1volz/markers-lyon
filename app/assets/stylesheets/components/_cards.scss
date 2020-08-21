@@ -1,6 +1,5 @@
 .content {
   display: flex;
-  padding: 0;
 }
 
 .cards {
@@ -8,7 +7,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 16px;
-  padding: 16px;
+  padding: 0 16px;
 }
 
 .day {
@@ -40,7 +39,6 @@
   border: 1px solid;
   padding: 4px;
   border-radius: 6px;
-
   color: #5eba7d;
 }
 
@@ -52,23 +50,29 @@
 }
 
 .map-wrapper {
- width: 700px;
+  width: 650px;
 }
 
 #map {
   height: 100vh;
   position: sticky;
   width: 100%;
-    height: 700px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   top: 0;
 }
+
 .card-custom {
-  height: 150px;
+  height: 200px;
   background-color: #fff;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  border-radius: 6px;
+  border-radius: 5px;
   overflow: hidden;
   position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-custom:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .card-custom h2 {
@@ -79,30 +83,39 @@
   font-weight: 900;
 }
 
-.card-custom .additional .more-info h2 {
-  color: #fff;
-  margin-bottom: 0;
-  font-weight: 900;
-
-}
-
 .card-custom .additional {
   position: absolute;
   width: 150px;
   height: 100%;
   overflow: hidden;
   z-index: 2;
-  transition: all .5s ease-in-out;
+  text-overflow: clip;
+  white-space: nowrap;
+  transition: all 0.6s ease-in-out;
+}
+
+.card-custom .additional .more-info h2 {
+  color: #fff;
+  margin-bottom: 0;
+  font-weight: 900;
+}
+
+.card-custom .additional .more-info p {
+  font-size: 1rem;
+  position: absolute;
+  left: 170px;
+  top: 90px;
+  color: #fff;
 }
 
 .card-custom:hover .additional {
   width: 100%;
   border-radius: 0 5px 5px 0;
   transform: scale(1.01);
-   .stats{
-     display: block;
-   }
 
+  .stats {
+    display: block;
+  }
 }
 
 .card-custom .additional .user-card {
@@ -122,15 +135,11 @@
   border-left: 2px solid rgba(0,0,0,0.025);
 }
 
-
 .card-custom .additional .more-info {
   width: 100%;
   position: absolute;
-  width: 100%;
   height: 100%;
 }
-
-
 
 .card-custom .additional .address {
   color: #fff;
@@ -145,13 +154,6 @@
   position: absolute;
   left: 170px;
   top: 90px;
-
-
-}
-
-
-.card-custom .additional .coords span + span {
-  float: right;
 }
 
 .card-custom .additional .stats {
@@ -160,7 +162,7 @@
   position: absolute;
   bottom: 25px;
   left: 30px;
-  top: auto;
+  top: 60px;
   color: #fff;
   display: none;
 }
@@ -187,10 +189,6 @@
   line-height: 1.5rem;
 }
 
-.card-custom .additional .stats div.value.infinity {
-  font-size: 2.5rem;
-}
-
 .card-custom .general {
   width: 100%;
   height: 100%;
@@ -199,15 +197,5 @@
   right: 0;
   z-index: 1;
   box-sizing: border-box;
-  padding: 1.3rem;
-  padding-top: 0;
-}
-
-
-
-.card-custom .general .more {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  font-size: 0.8em;
+  padding: 0 1.3rem 1.3rem;
 }

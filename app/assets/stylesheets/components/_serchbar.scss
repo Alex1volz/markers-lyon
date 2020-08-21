@@ -24,7 +24,7 @@
 }
 
 .search-card {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 //Toggle buttons
@@ -37,16 +37,6 @@
     text-align: center;
     transition: background 600ms ease, color 600ms ease;
 }
-
-//Change text color
-// .bio {
-//
-// }
-//
-//
-// .night {
-//
-// }
 
 input[type="radio"].toggle {
     display: none;
