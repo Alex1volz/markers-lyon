@@ -22,10 +22,20 @@
   height: 100%;
   background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))
 }
-.test h2 {
+.first  {
   position: absolute;
-  top: 300px;
+  top: 270px;
   left: 50px;
-  text-transform: uppercase;
   color: white;
+}
+
+.second  {
+  position: absolute;
+  top: 340px;
+  left: 50px;
+  color: white;
+}
+
+h2 {
+  font-size: 3rem;
 }
