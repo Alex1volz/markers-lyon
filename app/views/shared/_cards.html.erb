@@ -1,6 +1,7 @@
   <div class="content">
     <div class="cards">
         <% @markets.each do |market| %>
+
           <div class="card-custom" data-bio="<%= market.bio %>" data-night="<%= market.night %>" data-open="market.open_on">
 
             <div class="additional" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= market.img %>')">
