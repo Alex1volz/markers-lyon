@@ -26,3 +26,5 @@ document.addEventListener('turbolinks:load', () => {
 
 const Turbolinks = require("turbolinks")
 Turbolinks.start()
+
+import "controllers"
