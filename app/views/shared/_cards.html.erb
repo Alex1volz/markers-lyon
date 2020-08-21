@@ -1,8 +1,8 @@
   <div class="content">
     <div class="cards">
         <% @markets.each do |market| %>
+          <div class="card-custom" data-bio="<%= market.bio %>" data-night="<%= market.night %>" data-open="market.open_on">
 
-          <div class="card-custom">
             <div class="additional" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= market.img %>')">
               <div class="more-info">
                 <h2><%= market.name %></h2>
@@ -17,10 +17,9 @@
               </div>
             </div>
             <div class="general">
-              <div class="address">
-                <h2><%= market.name %></h2>
-              </div>
-              <span class="distance">à <%=rand(0.0..8.0).round(1)%> km</span>
+              <h2><%= market.name %></h2>
+              <span class="distance"><%= "à " if market.latitude %><%= market.distance_to([@search_lat,@search_lon]).round(2) if market.latitude %><%= " km" if market.latitude %></span>
+
               <div class="tags">
                 <span class="bio <%= "invisible" if market.bio == false%>"><%= "biologique" if market.bio == true%></span>
                 <span class="night<%= "invisible" if market.night == false%>"><%= "du soir" if market.night == true%></span>
