@@ -44,6 +44,9 @@ const buildMap = () => {
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10'
   });
+  map.on('load', () => {
+    map.resize();
+  });
 };
 
 const addMarkersToMap = (map, markers) => {
