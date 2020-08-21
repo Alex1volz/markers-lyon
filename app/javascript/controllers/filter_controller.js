@@ -56,17 +56,18 @@ day(envent) {
   console.log(day);
 
   marketCards.forEach((card) => {
-    // card.style.display = "none";
+  card.style.display = "none";
 
-    console.log(card.dataset.open.first)
+    const open = JSON.parse(card.dataset.open)
+    console.log(open)
 
-      if (day[0]==true){ if(card.dataset.open[0]=="true"){ card.style.display = "block";}}
-      if (day[1]==true){ if(card.dataset.open[1]=="true"){ card.style.display = "block";}}
-      if (day[2]==true){ if(card.dataset.open[2]=="true"){ card.style.display = "block";}}
-      if (day[3]==true){ if(card.dataset.open[3]=="true"){ card.style.display = "block";}}
-      if (day[4]==true){ if(card.dataset.open[4]=="true"){ card.style.display = "block";}}
-      if (day[5]==true){ if(card.dataset.open[5]=="true"){ card.style.display = "block";}}
-      if (day[6]==true){ if(card.dataset.open[6]=="true"){ card.style.display = "block";}}
+      if (day[0]==true){ if(open[0]==true){ card.style.display = "block";}}
+      if (day[1]==true){ if(open[1]==true){ card.style.display = "block";}}
+      if (day[2]==true){ if(open[2]==true){ card.style.display = "block";}}
+      if (day[3]==true){ if(open[3]==true){ card.style.display = "block";}}
+      if (day[4]==true){ if(open[4]==true){ card.style.display = "block";}}
+      if (day[5]==true){ if(open[5]==true){ card.style.display = "block";}}
+      if (day[6]==true){ if(open[6]==true){ card.style.display = "block";}}
   });
 }
 
