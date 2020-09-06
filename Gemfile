@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
 # Use Active Storage variant
+gem 'google-analytics-rails', '1.1.1'
+
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
